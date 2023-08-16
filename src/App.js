@@ -5,34 +5,57 @@ import Recipes from "./Recipes";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [search, setSearch] = useState("");
+  const [query, setQuery] = useState("chicken");
+  const [isLoading, setIsLoading] = useState(true);
 
   const getRecipes = async () => {
     const response = await fetch(
-      "https://api.edamam.com/api/recipes/v2?type=public&q=chicken&app_id=b707e695&app_key=9f215841fea3de227d90e97802689b33"
+      `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=b707e695&app_key=9f215841fea3de227d90e97802689b33`
     );
     const data = await response.json();
     setRecipes(data.hits);
+    setIsLoading(false);
   };
 
   useEffect(() => {
     getRecipes();
-  }, []);
+    // console.log("this has ran");
+  }, [query]);
 
-  const recipe = recipes.map((recipe) => (
+  if (isLoading) {
+    return <h2>Loading...</h2>;
+  }
+
+  const recipe = recipes.map((recipe, index) => (
     <Recipes
-      key={recipe.recipe.label}
+      key={index}
       image={recipe.recipe.image}
       mealName={recipe.recipe.label}
       calories={recipe.recipe.calories}
+      ingredients={recipe.recipe.ingredientLines}
     />
   ));
 
-  console.log(recipes);
+  const updateSearch = (event) => {
+    setSearch(event.target.value);
+  };
+
+  const handleQuery = (event) => {
+    event.preventDefault();
+    setQuery(search);
+  };
+  // console.log(recipes);
 
   return (
     <div className="App">
-      <form className="search--form">
-        <input type="text" className="search--bar" />
+      <form className="search--form" onSubmit={handleQuery}>
+        <input
+          type="text"
+          className="search--bar"
+          value={search}
+          onChange={updateSearch}
+        />
         <button type="submit" className="search--button">
           Search
         </button>
