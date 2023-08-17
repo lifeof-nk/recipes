@@ -24,17 +24,19 @@ function App() {
   }, [query]);
 
   if (isLoading) {
-    return <h2>Loading...</h2>;
+    return <h2>calm your tits mate, it's Loading...</h2>;
   }
 
   const recipe = recipes.map((recipe, index) => (
-    <Recipes
-      key={index}
-      image={recipe.recipe.image}
-      mealName={recipe.recipe.label}
-      calories={recipe.recipe.calories}
-      ingredients={recipe.recipe.ingredientLines}
-    />
+    <div className="recipes">
+      <Recipes
+        key={index}
+        image={recipe.recipe.image}
+        mealName={recipe.recipe.label}
+        calories={recipe.recipe.calories}
+        ingredients={recipe.recipe.ingredientLines}
+      />
+    </div>
   ));
 
   const updateSearch = (event) => {
@@ -44,8 +46,9 @@ function App() {
   const handleQuery = (event) => {
     event.preventDefault();
     setQuery(search);
+    setSearch("");
   };
-  // console.log(recipes);
+  console.log(recipes);
 
   return (
     <div className="App">
