@@ -35,6 +35,7 @@ function App() {
         mealName={recipe.recipe.label}
         calories={recipe.recipe.calories}
         ingredients={recipe.recipe.ingredientLines}
+        link={recipe.recipe.url}
       />
     </div>
   ));
@@ -48,7 +49,7 @@ function App() {
     setQuery(search);
     setSearch("");
   };
-  console.log(recipes);
+  // console.log(recipes);
 
   return (
     <div className="App">

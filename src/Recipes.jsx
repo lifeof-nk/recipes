@@ -12,6 +12,9 @@ const Recipes = (props) => {
           return <li key={index}>{ingredient}</li>;
         })}
       </div>
+      <a href={props.link} className="recipe--link">
+        Click here for recipe
+      </a>
     </div>
   );
 };
