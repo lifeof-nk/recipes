@@ -58,12 +58,13 @@ function App() {
           className="search--bar"
           value={search}
           onChange={updateSearch}
+          placeholder="search recipe"
         />
         <button type="submit" className="search--button">
           Search
         </button>
       </form>
-      {recipe}
+      <div className="recipes--container">{recipe}</div>
     </div>
   );
 }

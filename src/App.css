@@ -29,8 +29,36 @@
   background-color: tomato;
   border: none;
   font-size: 15px;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .recipes {
   display: flex;
+}
+
+.recipes--container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.container {
+  border: 1px solid black;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.08);
+  background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+  width: 400px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+
+.container img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
 }
