@@ -6,15 +6,17 @@ const Recipes = (props) => {
       <img src={props.image} alt={props.mealName} />
       <h2>{props.mealName}</h2>
       <h4>Calories:{Math.floor(props.calories)}</h4>
-      <div className="content">
-        <h3>Ingredients</h3>
-        {props.ingredients.map((ingredient, index) => {
-          return <li key={index}>{ingredient}</li>;
-        })}
+      <div className="ingredients--wrapper">
+        <div className="content">
+          <h3>Ingredients</h3>
+          {props.ingredients.map((ingredient, index) => {
+            return <li key={index}>{ingredient}</li>;
+          })}
+        </div>
+        <a href={props.link} className="recipe--link">
+          Click here for recipe
+        </a>
       </div>
-      <a href={props.link} className="recipe--link">
-        Click here for recipe
-      </a>
     </div>
   );
 };

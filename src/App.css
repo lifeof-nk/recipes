@@ -53,8 +53,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  /* flex: 1; */
   align-items: center;
   padding: 15px;
+  position: relative;
 }
 
 .container img {
@@ -71,4 +73,18 @@
   border-radius: 15px;
   padding: 10px;
   color: black;
+
+  bottom: 0;
+  align-self: center;
+}
+
+.ingredients--wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1;
+}
+
+.content {
+  flex: 1;
 }
