@@ -9,7 +9,7 @@ function App() {
   const [query, setQuery] = useState("chicken");
   const [isLoading, setIsLoading] = useState(true);
 
-  const getRecipes = async () => {
+  const getRecipes = async (query) => {
     const response = await fetch(
       `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=b707e695&app_key=9f215841fea3de227d90e97802689b33`
     );
@@ -19,7 +19,7 @@ function App() {
   };
 
   useEffect(() => {
-    getRecipes();
+    getRecipes(query);
     // console.log("this has ran");
   }, [query]);
 
